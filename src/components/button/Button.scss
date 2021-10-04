@@ -9,6 +9,7 @@
   align-self: flex-end;
   &:hover {
     background-color: $hover_violet;
+    transition: 0.3s ease-in;
   }
 }
 .equal {
@@ -19,6 +20,7 @@
   border-radius: 0 0 5px 0;
   &:hover {
     background-color: $hover_pink;
+    transition: 0.3s ease-in;
   }
 }
 .zero {

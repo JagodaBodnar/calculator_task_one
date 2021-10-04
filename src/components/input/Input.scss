@@ -3,9 +3,11 @@
   color: #fff;
   @include display;
   font-size: 30px;
+  max-width: 100%;
 }
 .operations {
   color: #d58191;
   @include display;
   font-size: 14px;
+  max-width: 100%;
 }

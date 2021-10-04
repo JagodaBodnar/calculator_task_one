@@ -13,7 +13,7 @@ const App = () => {
   const operators = ["+", "-", "*", "/"];
   const specificOperators = ["%", ".", "+/-", "C", "="];
 
-  const validate = () => {
+  const calculate = () => {
     if (operator === "+") {
       return parseFloat(prev) + parseFloat(next);
     } else if (operator === "-") {
@@ -36,8 +36,8 @@ const App = () => {
     setCalculation("");
     setOperations("");
   };
-  const calculate = () => {
-    setResult(validate(prev, next, operator).toString());
+  const calculateResult = () => {
+    setResult(calculate(prev, next, operator).toString());
   };
 
   const checkForSpecificOperator = (value) => {
@@ -69,7 +69,7 @@ const App = () => {
         clear();
         break;
       case "=":
-        calculate();
+        calculateResult();
         setPrev("");
         setNext("");
         setOperator("");
@@ -84,7 +84,7 @@ const App = () => {
         setOperator(value);
       } else {
         setOperator(value);
-        calculate();
+        calculateResult();
         setNext("");
         setPrev("");
       }
