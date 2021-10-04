@@ -34,6 +34,7 @@ const App = () => {
     setResult("");
     setOperator("");
     setCalculation("");
+    setOperations("");
   };
   const calculate = () => {
     setResult(validate(prev, next, operator).toString());
@@ -72,6 +73,7 @@ const App = () => {
         setPrev("");
         setNext("");
         setOperator("");
+        setOperations("");
       default:
         break;
     }
@@ -122,10 +124,6 @@ const App = () => {
   useEffect(() => result !== "" && setPrev(result), [result]);
   return (
     <div className="calculator_wrapper">
-      <div>
-        Prev: {prev} Operator: {operator} Next: {next} Result: {result}
-        Calculation: {calculation}
-      </div>
       <div className="calculator_display">
         <Input operations>{operations || "0"}</Input>
         <Input>{prev ? prev : "0"}</Input>
@@ -186,7 +184,7 @@ const App = () => {
         <Button name="0" onClick={setOperation}>
           0
         </Button>
-        <Button name="," onClick={setOperation}>
+        <Button name="." onClick={setOperation}>
           ,
         </Button>
         <Button name="=" onClick={setOperation}>
