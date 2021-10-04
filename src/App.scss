@@ -1,0 +1,41 @@
+@import "./common_styles/variables.scss";
+@import "./common_styles/responsive.scss";
+
+.calculator_wrapper {
+  display: flex;
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  @include respond-to(sm) {
+    width: 40%;
+  }
+  @include respond-to(md) {
+    width: 30%;
+  }
+  @include respond-to(lg) {
+    width: 30%;
+  }
+  @include respond-to(xl) {
+    width: 20%;
+  }
+}
+.calculator_container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  font-weight: 400;
+  border-radius: 0 0 5px 5px;
+}
+
+.calculator_display {
+  background-color: $dark_gray;
+  width: 100%;
+  height: 100px;
+  border-radius: 5px 5px 0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: flex-end;
+}

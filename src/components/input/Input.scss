@@ -1,0 +1,11 @@
+@import "../../common_styles/mixins.scss";
+.result {
+  color: #fff;
+  @include display;
+  font-size: 30px;
+}
+.operations {
+  color: #d58191;
+  @include display;
+  font-size: 14px;
+}

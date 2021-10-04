@@ -1,0 +1,23 @@
+@mixin button {
+  height: 4em;
+  display: grid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.4em;
+  color: gray;
+  background-color: rgb(246, 246, 246);
+  cursor: pointer;
+  border: none;
+  outline: none;
+  letter-spacing: 3px;
+  &:hover {
+    background-color: #fefefe;
+  }
+}
+
+@mixin display {
+  align-self: flex-end;
+  font-weight: 300;
+  padding-right: 20px;
+}

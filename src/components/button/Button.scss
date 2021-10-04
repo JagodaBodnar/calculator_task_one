@@ -1,0 +1,26 @@
+@import "../../common_styles/mixins.scss";
+@import "../../common_styles/variables.scss";
+.button {
+  @include button;
+}
+.operator {
+  background-color: $violet;
+  color: $white;
+  align-self: flex-end;
+  &:hover {
+    background-color: $hover_violet;
+  }
+}
+.equal {
+  grid-column: span 2;
+  background: $pink;
+  color: $white;
+  align-self: flex-end;
+  border-radius: 0 0 5px 0;
+  &:hover {
+    background-color: $hover_pink;
+  }
+}
+.zero {
+  border-radius: 0 0 0 5px;
+}
