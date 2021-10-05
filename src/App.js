@@ -17,6 +17,7 @@ const App = () => {
     if (operator === "+") {
       return parseFloat(prev) + parseFloat(next);
     } else if (operator === "-") {
+      console.log(prev, next);
       return parseFloat(prev) - parseFloat(next);
     } else if (operator === "*") {
       return parseFloat(prev) * parseFloat(next);
@@ -36,6 +37,7 @@ const App = () => {
     setCalculation("");
     setOperations("");
   };
+
   const calculateResult = () => {
     setResult(calculate(prev, next, operator).toString());
   };
@@ -63,6 +65,8 @@ const App = () => {
           setPrev((parseFloat(prev) * 0.01).toString());
         } else if (operator !== "" && next !== "" && result === "") {
           setNext((parseFloat(next) * 0.01).toString());
+        } else if (operator !== "" && next !== "" && result !== "") {
+          setNext((parseFloat(next) * 0.01 * parseFloat(result)).toString());
         }
         break;
       case "C":
@@ -97,6 +101,11 @@ const App = () => {
     ) {
       setNext(next + value);
     }
+    if (value !== "+/-" && value !== "C" && value !== "=") {
+      setOperations(operations + value);
+    } else if (value === "=") {
+      setOperations("");
+    }
   };
 
   const setOperation = (value) => {
@@ -114,14 +123,18 @@ const App = () => {
   const additionalValidator = (value) => {
     if (
       (operators.includes(value) && prev === "") ||
-      (operators.includes(value) && operator.includes(calculation.slice(-1)))
+      (operators.includes(value) && operator.includes(calculation.slice(-1))) ||
+      value === "+/-"
     ) {
       return;
     }
     setCalculation(calculation + value);
   };
 
-  useEffect(() => result !== "" && setPrev(result), [result]);
+  useEffect(() => {
+    result !== "" && setPrev(result);
+  }, [result]);
+
   return (
     <div className="calculator_wrapper">
       <div className="calculator_display">
